@@ -3,6 +3,7 @@ new Vue({
     template: `
         <div>
             <xheader></xheader>
+            <xnav></xnav>
         </div>
     `
 })
