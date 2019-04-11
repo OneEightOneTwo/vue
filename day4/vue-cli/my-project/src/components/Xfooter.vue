@@ -34,4 +34,12 @@ export default {
   }
 };
 </script>
+<style scoped>
+.weui-tabbar {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
+</style>
+
 
