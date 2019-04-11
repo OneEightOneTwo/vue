@@ -1,11 +1,16 @@
-console.log(1)
+// console.log(1)
 // node第三方模块
-const $ = require("jquery");
-const Vue = require("vue");
+// const $ = require("jquery");
+// const Vue = require("vue");
+const Vue = require("vue/dist/vue.js");
 
+
+
+// 非js文件，需要用loader来处理
+require("./index.css");
 // $("body").html("hello world");
 
-console.log(Vue);
+// console.log(Vue);
 
 // 虚拟DOM 操作字符串是非常复杂的，对象
 // 字符串模板
@@ -65,22 +70,36 @@ console.log(Vue);
 //     ]
 // }
 
-vnode 比较 vnode2
-replaceChild
+// vnode 比较 vnode2
+// replaceChild
 // vnode.children[0].children[0].text = "lin"
-new Vue.default({
+// new Vue.default({
+//     el: "#demo",
+//     data: {
+//         name: "yao"
+//     },
+//     render(createElement) {
+//         let vnode = createElement('div', null, [
+//             createElement('p', {
+//                 name: "abcdef"
+//             }, [this.name])
+//         ]);
+//         vnode.tag = "header"
+//         console.log(vnode);
+//         return vnode;
+//     }
+// })
+// let template = require("./index.html");
+import template from "./index.html";
+import xheader from "./xheader.vue";
+new Vue({
     el: "#demo",
+    template,
     data: {
         name: "yao"
     },
-    render(createElement) {
-        let vnode = createElement('div', null, [
-            createElement('p', {
-                name: "abcdef"
-            }, [this.name])
-        ]);
-        vnode.tag = "header"
-        console.log(vnode);
-        return vnode;
+    // 注册组件
+    components:{
+        xheader
     }
 })
