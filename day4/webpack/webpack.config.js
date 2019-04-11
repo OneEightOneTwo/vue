@@ -1,6 +1,7 @@
 // require
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 // 导出对象
 module.exports = {
     // 设置环境变量development或者production 影响你这个文件(min)的引入
@@ -50,10 +51,24 @@ module.exports = {
                 test: /\.vue$/,
                 use: ['vue-loader']
             },
+            // 处理图片格式
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192
+                        }
+                    }
+                ]
+            }
         ]
     },
     plugins: [
         // make sure to include the plugin!
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        // 压缩JS代码
+        new UglifyJsPlugin()
     ]
 };
