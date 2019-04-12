@@ -1,6 +1,23 @@
 <template>
-  <header>微信</header>
+  <header @click="showActionsheet">微信</header>
 </template>
+<script>
+import state from "../observable.js";
+export default {
+  methods: {
+    showActionsheet() {
+      // 把控制弹窗的公有变量改为true
+      state.isActionsheet = true;
+    }
+  },
+  computed: {
+    state() {
+      return state;
+    }
+  }
+};
+</script>
+
 <style scoped>
 /* css是局部样式 */
 header {

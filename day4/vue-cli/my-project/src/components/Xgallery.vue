@@ -20,10 +20,8 @@ export default {
     };
   },
   created() {
-    console.log("created");
     // 监听Xpanel传过来的事件
     bus.$on("showGallery", data => {
-      console.log(this);
       this.src = data.src;
       this.bool = true;
     });

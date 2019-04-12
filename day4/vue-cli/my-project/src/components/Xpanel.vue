@@ -8,7 +8,12 @@
         class="weui-media-box weui-media-box_appmsg"
       >
         <div class="weui-media-box__hd">
-          <img @click="showGallery(n.author.avatar_url)" class="weui-media-box__thumb" :src="n.author.avatar_url" alt>
+          <img
+            @click="showGallery(n.author.avatar_url)"
+            class="weui-media-box__thumb"
+            :src="n.author.avatar_url"
+            alt
+          >
         </div>
         <div class="weui-media-box__bd">
           <h4 class="weui-media-box__title" v-text="n.author.loginname"></h4>
@@ -25,7 +30,8 @@
   </div>
 </template>
 <script>
-import bus from '../bus.js'
+import state from "../observable.js";
+import bus from "../bus.js";
 export default {
   data() {
     return {
@@ -49,20 +55,38 @@ export default {
         // api接口
         .get("https://cnodejs.org/api/v1/topics", {
           params: {
+            // 页码
             page: this.page,
-            limit: 10
+            // 每页的条数
+            limit: 10,
+            // 主题
+            tab: this.tab
           }
         });
       // 把接口拿到的数据，放入该组件的Model层
       this.news = [...this.news, ...data.data];
     },
     // 点击预览图片
-    showGallery(src){
-      console.log(src)
+    showGallery(src) {
       // 通知Xgallery组件出现
-      bus.$emit('showGallery',{
+      bus.$emit("showGallery", {
         src
-      })
+      });
+    }
+  },
+  // 获取公有变量，更改当前主题
+  computed: {
+    tab(){
+      return state.tab.tab
+    }
+  },
+  watch:{
+    tab(){
+      this.news = [];
+      // 频道切换页码初始化为0
+      this.page = 0;
+      // 主题切换自动触发ajax请求
+      this.loadMore();
     }
   }
 };

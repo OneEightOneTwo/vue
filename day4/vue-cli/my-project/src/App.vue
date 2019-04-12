@@ -5,6 +5,7 @@
     <Xpanel/>
     <Xfooter/>
     <Xgallery/>
+    <Xactionsheet />
   </div>
 </template>
 
@@ -19,6 +20,8 @@ import Xfooter from "./components/Xfooter.vue";
 import Xpanel from "./components/Xpanel.vue";
 // 预览图
 import Xgallery from "./components/Xgallery.vue";
+// 弹窗
+import Xactionsheet from "./components/Xactionsheet.vue";
 
 export default {
   name: "app",
@@ -27,7 +30,8 @@ export default {
     Xsearch,
     Xfooter,
     Xpanel,
-    Xgallery
+    Xgallery,
+    Xactionsheet
   }
 };
 </script>
