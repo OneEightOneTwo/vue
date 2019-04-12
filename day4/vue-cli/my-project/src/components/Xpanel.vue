@@ -32,6 +32,7 @@
 <script>
 import state from "../observable.js";
 import bus from "../bus.js";
+import request from "../request.js";
 export default {
   data() {
     return {
@@ -49,21 +50,35 @@ export default {
   methods: {
     // 加载更多
     async loadMore() {
-      // 加页码
+      // 请求的时候
+      // state.isToast = true;
+      // // 加页码
+      // this.page += 1;
+      // let { data } = await this.$axios
+      //   // api接口
+      //   .get("https://cnodejs.org/api/v1/topics", {
+      //     params: {
+      //       // 页码
+      //       page: this.page,
+      //       // 每页的条数
+      //       limit: 10,
+      //       // 主题
+      //       tab: this.tab
+      //     }
+      //   });
+      // // 请求完时候
+      // state.isToast = false;
+      // // 把接口拿到的数据，放入该组件的Model层
+      // this.news = [...this.news, ...data.data];
       this.page += 1;
-      let { data } = await this.$axios
-        // api接口
-        .get("https://cnodejs.org/api/v1/topics", {
-          params: {
-            // 页码
-            page: this.page,
-            // 每页的条数
-            limit: 10,
-            // 主题
-            tab: this.tab
-          }
-        });
-      // 把接口拿到的数据，放入该组件的Model层
+      let { data } = await request.get("https://cnodejs.org/api/v1/topics", {
+        // 页码
+        page: this.page,
+        // 每页的条数
+        limit: 10,
+        // 主题
+        tab: this.tab
+      });
       this.news = [...this.news, ...data.data];
     },
     // 点击预览图片
@@ -76,12 +91,15 @@ export default {
   },
   // 获取公有变量，更改当前主题
   computed: {
-    tab(){
-      return state.tab.tab
+    tab() {
+      return state.tab.tab;
+    },
+    state() {
+      return state;
     }
   },
-  watch:{
-    tab(){
+  watch: {
+    tab() {
       this.news = [];
       // 频道切换页码初始化为0
       this.page = 0;
