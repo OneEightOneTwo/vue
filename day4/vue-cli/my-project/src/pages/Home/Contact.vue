@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Xheader>通讯录</Xheader>
+    <Xheader :isShowBack="false" :isShowHam="false">通讯录</Xheader>
   </div>
 </template>
 

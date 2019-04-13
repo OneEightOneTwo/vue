@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Xheader>微信</Xheader>
+    <Xheader :isShowBack="false" :isShowHam="true">微信</Xheader>
     <Xsearch :bool="false"/>
     <Xpanel/>
     <Xgallery/>

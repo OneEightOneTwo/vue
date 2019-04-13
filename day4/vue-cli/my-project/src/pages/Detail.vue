@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Xheader :isShowBack="true" :isShowHam="false">详情</Xheader>
     <article class="weui-article">
       <h1>大标题</h1>
       <section>
@@ -32,12 +33,16 @@
 </template>
 
 <script>
+import Xheader from "../components/Xheader.vue";
 import picArticle from "../assets/pic_article.png";
 export default {
   data() {
     return {
       picArticle
     };
+  },
+  components: {
+    Xheader
   }
 };
 </script>
