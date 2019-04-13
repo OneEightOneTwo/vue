@@ -59,6 +59,7 @@
         })
         // 路由守卫
         // 每一次进路由之前，都会进入该回调函数里面执行一次逻辑
+        // 路由守门人
         router.beforeEach((to, from, next) => {
             // to 下一层路由 将要进去的路由
             // from 上一层路由 将要离开的路由
@@ -66,7 +67,9 @@
             console.log(to, from, next)
             // 必须有token才可以进路由
             // ajax token的正确性
+
             if (localStorage.getItem('token')) {
+                // 执行它才可以进to的路由
                 next();
             } else {
                 if (to.path === '/login') {

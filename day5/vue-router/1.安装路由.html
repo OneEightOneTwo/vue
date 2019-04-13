@@ -10,6 +10,7 @@
 
 <body>
     <div id="demo">
+        <!-- router-view相当于a标签 -->
         <router-link to="/foo">Go to Foo</router-link>
         <router-link to="/bar">Go to Bar</router-link>
         <!-- 充当画布 当url为/foo Foo组件将会显示在 router-view标签里面-->
@@ -49,6 +50,8 @@
         const app = new Vue({
             el: "#demo",
             // 往vue容器里面注入路由服务
+            // this.$route
+            // this.$router
             router
         })
 

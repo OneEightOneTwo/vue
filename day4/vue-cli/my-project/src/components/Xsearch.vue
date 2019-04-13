@@ -7,6 +7,7 @@
         <i class="weui-icon-search"></i>
         <input
           v-model="searchInput"
+          ref="searchInput"
           v-focus
           type="search"
           class="weui-search-bar__input"
@@ -31,25 +32,37 @@
 </template>
 <script>
 export default {
+  // 获取父组件的bool值，更改当前页面的状态
+  props: ["bool"],
   data() {
     return {
       // 控制搜索框的状态
-      bool: false,
+      // bool: false,
       // 搜索框的内容
       searchInput: ""
     };
   },
   methods: {
     toggle() {
-      this.bool = !this.bool;
+      // this.bool = !this.bool;
+      // 跳转到搜索页
+      // 如果在搜索页，就返回home页面，否则进入搜索页
+      this.$route.name === "search"
+        ? this.$router.push({ name: "home" })
+        : this.$router.push({ name: "search" });
     },
     clear() {
       // 清空搜索框
       this.searchInput = "";
     }
   },
+  mounted() {
+    // 挂载完之后进行输入框的聚焦
+    this.$refs.searchInput.focus();
+  },
   directives: {
     focus(el) {
+      console.log(el);
       el.focus();
     }
   }

@@ -15,7 +15,8 @@
             alt
           >
         </div>
-        <div class="weui-media-box__bd">
+        <!-- 编程式导航，实现首页详情页的关联 -->
+        <div @click="toDetail(n.id)" class="weui-media-box__bd">
           <h4 class="weui-media-box__title" v-text="n.author.loginname"></h4>
           <p class="weui-media-box__desc" v-text="n.title"></p>
         </div>
@@ -87,6 +88,11 @@ export default {
       bus.$emit("showGallery", {
         src
       });
+    },
+    // 跳转详情页
+    toDetail(id) {
+      // 跳转详情页并传递ID值
+      this.$router.push({ name: "detail", params: { id } });
     }
   },
   // 获取公有变量，更改当前主题
