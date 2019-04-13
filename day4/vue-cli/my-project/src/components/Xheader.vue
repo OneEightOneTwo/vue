@@ -1,5 +1,7 @@
 <template>
-  <header @click="showActionsheet">微信</header>
+  <header @click="showActionsheet">
+    <slot></slot>
+  </header>
 </template>
 <script>
 import state from "../observable.js";

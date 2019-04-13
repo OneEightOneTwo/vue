@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Xsearch :bool="true"/>
+    <Xheader>通讯录</Xheader>
   </div>
 </template>
 
 <script>
-import Xsearch from "../components/Xsearch.vue";
+import Xheader from "../../components/Xheader.vue";
 export default {
   components: {
-    Xsearch
+    Xheader
   }
 };
 </script>
