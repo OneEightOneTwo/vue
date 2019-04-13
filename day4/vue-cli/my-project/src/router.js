@@ -31,7 +31,7 @@ const routes = [
     { path: '/detail/:id', component: Detail, name: 'detail' },
     { path: '/search', component: Search, name: 'search' },
     // 设置默认重定向
-    { path: '/', redirect: '/home' }
+    { path: '/', redirect: '/home/wechat' }
 ]
 // 实例化路由
 const router = new VueRouter({

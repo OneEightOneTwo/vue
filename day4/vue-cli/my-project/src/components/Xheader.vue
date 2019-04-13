@@ -4,7 +4,7 @@
     <div v-if="isShowBack" @click="back" class="leftIcon"></div>
     <div v-else class="emptyIcon"></div>
     <!-- 标题 -->
-    <div class="title">
+    <div @click="showDialog" class="title">
       <slot></slot>
     </div>
     <!-- 右图标 -->
@@ -25,6 +25,11 @@ export default {
     back() {
       // 返回
       this.$router.go(-1);
+    },
+    // 通知弹窗出现
+    showDialog() {
+      // 触发action的setIsShowDialog
+      this.$store.dispatch("setIsShowDialog", true);
     }
   },
   computed: {
