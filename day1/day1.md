@@ -1,8 +1,17 @@
 # vue介绍
 
+Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。
+
+如果你想在深入学习 Vue 之前对它有更多了解，我们制作了一个视频，带您了解其核心概念和一个示例工程。
+
+如果你已经是有经验的前端开发者，想知道 Vue 与其它库/框架有哪些区别，请查看对比其它框架。
+
 [vue官网](https://cn.vuejs.org/)
+[vue官网教程](https://cn.vuejs.org/v2/guide/)
 
 先下载`vue.js`，然后在html文件中引入
+
+尤雨溪
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
@@ -19,6 +28,22 @@ Vue 的核心库只关注视图层  读音view
 如果页面注重操作节点，jquery
 
 如果页面数据比较多，建议用vue
+
+- View重视图层
+- 构建用户界面的框架
+- 有一个完整生态支持，完整技术链
+- 驱动大型项目
+- MV框架 express MVC
+
+数据驱动框架
+angular(mvc) react(mv) vue(mv)
+
+节点驱动库
+```js
+$(view)(.val)(model)
+$(view)(.css)(model)
+$(view)(.attr)(model)
+```
 
 # 开发工具
 
